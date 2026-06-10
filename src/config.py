@@ -1,11 +1,21 @@
 import os
 from pathlib import Path
-from dotenv import load_dotenv
 
-load_dotenv(Path(__file__).parent.parent / ".env")
+try:
+    from dotenv import load_dotenv
+    load_dotenv(Path(__file__).parent.parent / ".env")
+except Exception:
+    pass
 
-GROQ_API_KEY       = os.getenv("GROQ_API_KEY", "")
-LLM_MODEL          = os.getenv("LLM_MODEL", "llama3-8b-8192")
+def get_secret(key, default=""):
+    try:
+        import streamlit as st
+        return st.secrets.get(key, os.getenv(key, default))
+    except Exception:
+        return os.getenv(key, default)
+
+GROQ_API_KEY       = get_secret("GROQ_API_KEY")
+LLM_MODEL          = os.getenv("LLM_MODEL", "llama-3.3-70b-versatile")
 EMBEDDING_MODEL    = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
 CHROMA_PERSIST_DIR = os.getenv("CHROMA_PERSIST_DIR", "./chroma_db")
 COLLECTION_NAME    = os.getenv("COLLECTION_NAME", "physics_corpus")
@@ -34,7 +44,7 @@ PHYSICS_KEYWORDS = [
     "pendulum", "resonance", "circuit", "capacitor", "inductor", "lens",
     "mirror", "photoelectric", "de broglie", "uncertainty", "conservation",
     "kinetic", "potential energy", "work", "power", "displacement",
-    "trajectory", "projectile", "vector", "scalar","kinematic", "kinematics", "equation", "motion", "distance",
-"time", "speed", "uniform", "acceleration due to gravity",
-"derive", "derivation", "position", "initial velocity",
+    "trajectory", "projectile", "vector", "scalar", "kinematic",
+    "kinematics", "equation", "motion", "distance", "time", "speed",
+    "uniform", "derive", "derivation", "position", "initial velocity",
 ]
