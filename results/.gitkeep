@@ -1,0 +1,2 @@
+# Evaluation reports are saved here by:
+#   python -m src.evaluation.test_suite --output results/eval_report.json

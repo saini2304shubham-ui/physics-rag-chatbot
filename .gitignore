@@ -1,0 +1,28 @@
+# Environment
+.env
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Vector store (large — rebuild from corpus)
+chroma_db/
+
+# Generated files
+results/*.json
+corpus/manifest.json
+
+# Corpus PDFs (large — use download script)
+corpus/*.pdf
+
+# Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+
+# Editor
+.vscode/
+.idea/
+*.swp
