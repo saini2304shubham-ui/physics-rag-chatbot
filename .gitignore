@@ -6,7 +6,7 @@ __pycache__/
 *.pyo
 
 # Vector store (large — rebuild from corpus)
-chroma_db/
+# chroma_db/
 
 # Generated files
 results/*.json
@@ -26,3 +26,7 @@ build/
 .vscode/
 .idea/
 *.swp
+
+.streamlit/secrets.toml
+.streamlit/secrets.toml.example
+.env
