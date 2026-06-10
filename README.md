@@ -262,8 +262,8 @@ Run `python -m src.evaluation.test_suite` to measure against all 30 test cases.
 
 ---
 
-## License
+demo by clicking url= "https://physics-rag-chatbot-mpwzgje4vvyt5f7zd57htj.streamlit.app/"
 
-MIT — see LICENSE
+
 
 Physics textbooks from [OpenStax](https://openstax.org) are CC-BY 4.0.
